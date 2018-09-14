@@ -603,7 +603,6 @@
                 
                 return CGRectGetWidth([[UIScreen mainScreen] bounds]);
             })
-            .LeeActionSheetBackgroundColor([UIColor whiteColor]) // 通过设置背景颜色来填充底部间隙
             .LeeShow();
         }
             break;

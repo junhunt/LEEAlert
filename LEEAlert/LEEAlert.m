@@ -12,8 +12,8 @@
  *  @brief  LEEAlert
  *
  *  @author LEE
- *  @copyright    Copyright © 2016 - 2018年 lee. All rights reserved.
- *  @version    V1.1.6
+ *  @copyright    Copyright © 2016 - 2017年 lee. All rights reserved.
+ *  @version    V1.1.5
  */
 
 #import "LEEAlert.h"
@@ -85,7 +85,6 @@ typedef NS_ENUM(NSInteger, LEEBackgroundStyle) {
 @property (nonatomic , assign ) UIBlurEffectStyle modelBackgroundBlurEffectStyle;
 @property (nonatomic , assign ) UIInterfaceOrientationMask modelSupportedInterfaceOrientations;
 
-@property (nonatomic , strong ) UIColor *modelActionSheetBackgroundColor;
 @property (nonatomic , strong ) UIColor *modelActionSheetCancelActionSpaceColor;
 @property (nonatomic , assign ) CGFloat modelActionSheetCancelActionSpaceWidth;
 @property (nonatomic , assign ) CGFloat modelActionSheetBottomMargin;
@@ -120,7 +119,6 @@ typedef NS_ENUM(NSInteger, LEEBackgroundStyle) {
         _modelQueuePriority = 0; //默认队列优先级 (大于0时才会加入队列)
         
         
-        _modelActionSheetBackgroundColor = [UIColor clearColor]; //默认actionsheet背景颜色
         _modelActionSheetCancelActionSpaceColor = [UIColor clearColor]; //默认actionsheet取消按钮间隔颜色
         _modelActionSheetCancelActionSpaceWidth = 10.0f; //默认actionsheet取消按钮间隔宽度
         _modelActionSheetBottomMargin = 10.0f; //默认actionsheet距离屏幕底部距离
@@ -884,19 +882,6 @@ typedef NS_ENUM(NSInteger, LEEBackgroundStyle) {
     return ^(CGFloat number){
         
         if (weakSelf) weakSelf.modelActionSheetBottomMargin = number;
-        
-        return weakSelf;
-    };
-    
-}
-
-- (LEEConfigToColor)LeeActionSheetBackgroundColor{
-    
-    __weak typeof(self) weakSelf = self;
-    
-    return ^(UIColor *color){
-        
-        if (weakSelf) weakSelf.modelActionSheetBackgroundColor = color;
         
         return weakSelf;
     };
@@ -2536,7 +2521,7 @@ typedef NS_ENUM(NSInteger, LEEBackgroundStyle) {
     
     actionSheetViewFrame.size.height = actionSheetViewHeight > actionSheetViewMaxHeight - cancelActionTotalHeight ? actionSheetViewMaxHeight - cancelActionTotalHeight : actionSheetViewHeight;
     
-    actionSheetViewFrame.origin.x = (viewWidth - actionSheetViewMaxWidth) * 0.5f;
+    actionSheetViewFrame.origin.x = 0;
     
     self.actionSheetView.frame = actionSheetViewFrame;
     
@@ -2544,7 +2529,7 @@ typedef NS_ENUM(NSInteger, LEEBackgroundStyle) {
         
         CGRect spaceFrame = self.actionSheetCancelActionSpaceView.frame;
         
-        spaceFrame.origin.x = actionSheetViewFrame.origin.x;
+        spaceFrame.origin.x = 0;
         
         spaceFrame.origin.y = actionSheetViewFrame.origin.y + actionSheetViewFrame.size.height;
         
@@ -2556,7 +2541,7 @@ typedef NS_ENUM(NSInteger, LEEBackgroundStyle) {
         
         CGRect buttonFrame = self.actionSheetCancelAction.frame;
         
-        buttonFrame.origin.x = actionSheetViewFrame.origin.x;
+        buttonFrame.origin.x = 0;
         
         buttonFrame.origin.y = actionSheetViewFrame.origin.y + actionSheetViewFrame.size.height + spaceFrame.size.height;
         
@@ -2567,15 +2552,15 @@ typedef NS_ENUM(NSInteger, LEEBackgroundStyle) {
     
     CGRect containerFrame = self.containerView.frame;
     
-    containerFrame.size.width = viewWidth;
+    containerFrame.size.width = actionSheetViewFrame.size.width;
     
-    containerFrame.size.height = actionSheetViewFrame.size.height + cancelActionTotalHeight + VIEWSAFEAREAINSETS(self.view).bottom + self.config.modelActionSheetBottomMargin;
+    containerFrame.size.height = actionSheetViewFrame.size.height + cancelActionTotalHeight;
     
-    containerFrame.origin.x = 0;
+    containerFrame.origin.x = (viewWidth - actionSheetViewMaxWidth) * 0.5f;
     
     if (isShowed) {
         
-        containerFrame.origin.y = viewHeight - containerFrame.size.height;
+        containerFrame.origin.y = (viewHeight - containerFrame.size.height - VIEWSAFEAREAINSETS(self.view).bottom) - self.config.modelActionSheetBottomMargin;
         
     } else {
         
@@ -2594,8 +2579,6 @@ typedef NS_ENUM(NSInteger, LEEBackgroundStyle) {
     [self.view addSubview: _containerView];
     
     [self.containerView addSubview: self.actionSheetView];
-    
-    self.containerView.backgroundColor = self.config.modelActionSheetBackgroundColor;
     
     self.containerView.layer.shadowOffset = self.config.modelShadowOffset;
     
@@ -2945,7 +2928,7 @@ typedef NS_ENUM(NSInteger, LEEBackgroundStyle) {
         
         containerFrame.origin.x = (viewWidth - containerFrame.size.width) * 0.5f;
         
-        containerFrame.origin.y = viewHeight - containerFrame.size.height;
+        containerFrame.origin.y = (viewHeight - containerFrame.size.height) - weakSelf.config.modelActionSheetBottomMargin - VIEWSAFEAREAINSETS(weakSelf.view).bottom;
         
         weakSelf.containerView.frame = containerFrame;
         

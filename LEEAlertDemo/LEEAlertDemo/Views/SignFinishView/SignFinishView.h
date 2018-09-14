@@ -13,6 +13,6 @@
 /**
  *  关闭Block
  */
-@property (nonatomic , copy ) void (^closeBlock)(void);
+@property (nonatomic , copy ) void (^closeBlock)();
 
 @end
