@@ -300,6 +300,9 @@
 /** action高亮图片 */
 @property (nonatomic , strong ) UIImage *highlightImage;
 
+/** action背景图片 */
+@property (nonatomic , strong ) UIImage *backgroundImage;
+
 /** action间距范围 */
 @property (nonatomic , assign ) UIEdgeInsets insets;
 

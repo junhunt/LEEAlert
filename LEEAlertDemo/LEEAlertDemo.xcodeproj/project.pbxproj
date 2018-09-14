@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B9846CB20C6C57200A3A4CB /* UIImage+Gradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9846C920C6C57200A3A4CB /* UIImage+Gradient.m */; };
 		9B0BB22A1E8E28760087D231 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0BB2291E8E28760087D231 /* main.m */; };
 		9B0BB22D1E8E28760087D231 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0BB22C1E8E28760087D231 /* AppDelegate.m */; };
 		9B0BB2331E8E28760087D231 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B0BB2311E8E28760087D231 /* Main.storyboard */; };
@@ -50,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B9846C920C6C57200A3A4CB /* UIImage+Gradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Gradient.m"; sourceTree = "<group>"; };
+		5B9846CA20C6C57200A3A4CB /* UIImage+Gradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Gradient.h"; sourceTree = "<group>"; };
 		9B0BB2251E8E28760087D231 /* LEEAlertDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LEEAlertDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B0BB2291E8E28760087D231 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9B0BB22B1E8E28760087D231 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -161,6 +164,8 @@
 				9B0BB2361E8E28760087D231 /* LaunchScreen.storyboard */,
 				9B0BB2391E8E28760087D231 /* Info.plist */,
 				9BBEF12A1EE682EB000B91F9 /* address.plist */,
+				5B9846CA20C6C57200A3A4CB /* UIImage+Gradient.h */,
+				5B9846C920C6C57200A3A4CB /* UIImage+Gradient.m */,
 				9B0BB2281E8E28760087D231 /* Supporting Files */,
 				9B98146A1ECD695F00014BD3 /* AlertTableViewController.h */,
 				9B98146B1ECD695F00014BD3 /* AlertTableViewController.m */,
@@ -428,6 +433,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BF6B30D1F0636EB00C099A1 /* AllShareView.m in Sources */,
+				5B9846CB20C6C57200A3A4CB /* UIImage+Gradient.m in Sources */,
 				9BF6B30E1F0636EB00C099A1 /* ShareButton.m in Sources */,
 				9B9814781ECF09AB00014BD3 /* LEEAlert.m in Sources */,
 				9B0BB22D1E8E28760087D231 /* AppDelegate.m in Sources */,

@@ -1233,6 +1233,8 @@ typedef NS_ENUM(NSInteger, LEEBackgroundStyle) {
     
     if (action.highlightImage) [self setImage:action.highlightImage forState:UIControlStateHighlighted];
     
+    if (action.backgroundImage) [self setBackgroundImage:action.backgroundImage forState:UIControlStateNormal];
+
     if (action.height) [self setActionHeight:action.height];
     
     if (action.cornerRadius) [self.layer setCornerRadius:action.cornerRadius];

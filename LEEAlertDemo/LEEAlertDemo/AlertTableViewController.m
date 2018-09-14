@@ -18,6 +18,8 @@
 
 #import "SelectedListView.h"
 
+#import "UIImage+Gradient.h"
+
 @interface AlertTableViewController ()
 
 @property (nonatomic , strong ) NSMutableArray *dataArray;
@@ -80,6 +82,8 @@
     
     [baseArray addObject:@{@"title" : @"显示一个自定义动画样式的 alert 弹框" , @"content" : @"动画样式可设置动画方向, 淡入淡出, 缩放等"}];
     
+    [baseArray addObject:@{@"title" : @"按钮背景渐变" , @"content" : @""}];
+
     [demoArray addObject:@{@"title" : @"显示一个蓝色自定义风格的 alert 弹框" , @"content" : @"弹框背景等颜色均可以自定义"}];
     
     [demoArray addObject:@{@"title" : @"显示一个分享登录的 alert 弹框" , @"content" : @"类似某些复杂内容的弹框 可以通过封装成自定义视图来显示"}];
